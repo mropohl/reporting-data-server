@@ -1,0 +1,121 @@
+@import '../vars.sass'
+@import '../../../node_modules/normalize.css/normalize.css'
+
+.navbar-wrapper
+    height: 80px
+    width: 100%
+    background: $green
+
+    h1
+        color: $white
+        margin: 0
+        margin-top: 15px
+        margin-left: 30px
+        display: block
+        position: absolute
+        border: 2px solid $white
+        border-radius: 2px
+        padding: 5px
+        padding-left: 14px
+        padding-right: 14px
+
+        font:
+            size: 1.6rem
+
+    .btn-navbar
+        background: $white
+        color: $blue
+        top: 18px
+        right: 20px
+        display: block
+        position: absolute
+
+    .btn-report
+        right: 405px
+
+    .btn-show-report
+        right: 540px
+
+    .navbar-status
+        position: absolute
+        display: block
+        right: 130px
+        top: 28px
+        color: $white
+
+        .navbar-status-name
+            font:
+                weight: 600
+
+    .report-list-wrapper
+        position: absolute
+        top: 17px
+        right: 690px
+        color: white
+
+        p
+            border-radius: 2px
+            display: inline-block
+            //border: 1px solid white
+            padding: 10px
+
+    .report-list-button
+        border: 1px solid white
+        border-radius: 2px
+
+        padding: 10px
+        min-width: 80px
+        margin-left: 10px
+        color: white
+        background: transparent
+
+        &:hover, &:focus, &:active
+            outline: none
+
+
+    .report-list-menu
+        background: white
+        width: auto
+        //display: inline-block
+        //padding-left: 10px
+        padding: 0
+        list-style: none
+        text-align: center
+        box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.51)
+        color: black
+        //display: none
+        .hidden
+            display: none
+        li
+            padding: 0
+            padding-top: 10px
+            padding-bottom: 10px
+            box-sizing: border-box
+            border-bottom: 1px solid grey
+            //&:after
+                display: block
+                content: ""
+                height: 1px
+                width: 100%
+                background: grey
+
+.icon-down
+    display: inline-block
+    width: 0
+    height: 0
+    border-left: 6px solid transparent
+    border-right: 6px solid transparent
+    border-top: 6px solid white
+    margin-left: 10px
+    transform: translateY(-2px)
+
+.icon-up
+
+    display: inline-block
+    width: 0
+    height: 0
+    border-left: 6px solid transparent
+    border-right: 6px solid transparent
+    border-bottom: 6px solid white
+    margin-left: 10px
+    transform: translateY(-2px)

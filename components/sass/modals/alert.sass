@@ -1,0 +1,144 @@
+@import '../vars.sass'
+@import '../../../node_modules/normalize.css/normalize.css'
+
+.alert-wrapper-outside
+    z-index: 9
+    position: fixed
+
+.alert-outside-click
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 9
+
+
+.alert-wrapper
+    pointer-events: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(1,1,1,0.6)
+    z-index: 999
+
+.alert
+    position: fixed
+    pointer-events: auto
+    width: 70%
+    max-width: 500px
+    height: 290px
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background: #ecf0f1
+    text-align: center
+    //padding-top: 60px
+    border-radius: 2px
+    z-index: 9999
+    box-shadow: 0px 6px 21px -9px rgba(0,0,0,0.76);
+
+    p
+        color: #2c3e50
+        margin-top: 0px
+
+    input
+        padding-left: 5px
+        width: 90%
+        display: block
+        margin-left: auto
+        margin-right: auto
+        margin-bottom: 15px
+
+    .btn-close
+        z-index: 99
+        position: absolute
+        display: block
+        width: auto
+        height: 28px
+        background: $white
+        border: 1px solid #7f8c8d!important
+        font:
+            font-family: "Verdana"
+            weight: 400
+        line-height: 0.4rem
+        opacity: 1
+        color: #7f8c8d
+        right: 4px
+        top: 4px
+        //border-radius: 50%
+        //transform: translate(50%, -50%)
+
+    .alert-input-wrapper
+        display: block
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 40%
+        text-align: center
+
+    .alert-text-wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+        //margin-top: 60px
+        height: 60%
+        position: absolute
+        width: 100%
+        top: 0
+
+        p
+            margin: 0
+
+
+.modal-enter
+  opacity: 0.01
+  //transform: translate(-50%, -50%) rotateX(-30deg)
+
+.modal-enter.modal-enter-active
+  opacity: 1
+  //transform: translate(-50%, -50%) rotateX(0)
+  transition: all 0.3s ease-out
+
+.modal-leave
+  opacity: 1
+
+.modal-leave.modal-leave-active
+  opacity: 0.01
+  transition: all 0.3s ease-out
+
+
+.modal-text-wrapper
+    height: 70%
+    width: 100%
+    padding: 30px
+    text-align: left
+    box-sizing: border-box
+    p
+        margin: 0
+        &:nth-child(1)
+            text-align: center
+
+.alert-noinput
+    box-sizing: border-box
+    padding-top: 60px
+
+    .alert-text-wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+        //margin-top: 60px
+        height: 40%
+        position: absolute
+        width: 100%
+        top: 0
+
+    .alert-input-wrapper
+        display: block
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 60%
+        text-align: center
