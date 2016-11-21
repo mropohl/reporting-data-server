@@ -3,9 +3,8 @@ var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   entry: [
-    'webpack-hot-middleware/client',
     './client/client.js'
   ],
   output: {
@@ -14,9 +13,17 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+        minimize: true,
+        compress: {
+            warnings: false
+        }
+    }),
+    new webpack.DefinePlugin({
+        'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+        }
+    })
   ],
   module: {
     loaders: [
@@ -25,7 +32,7 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-                presets: ['react', 'es2015', 'react-hmre'],
+                presets: ['react', 'es2015'],
                 plugins: [
                             'transform-object-rest-spread'
                         ]

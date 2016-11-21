@@ -31,20 +31,6 @@ let initialState = {
 
 let store = configureStore(initialState)
 
-const saveState = (state) => {
-    try {
-        const serializedState = JSON.stringify(state)
-        localStorage.setItem('state', serializedState)
-    }
-    catch (err) {
-        console.log('error');
-    }
-}
-
-store.subscribe(() => {
-    saveState(store.getState())
-})
-
 render (
     <Provider store={store}>
         <App/>

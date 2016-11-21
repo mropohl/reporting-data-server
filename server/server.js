@@ -6,23 +6,25 @@ var Report = require('../models/report');
 var ReportPost = require('../models/reportPost');
 
 var path = require('path');
-var config = require('../webpack.config.js');
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
 
 var app = express();
 var router = express.Router();
 
-var compiler = webpack(config);
+if (process.env.NODE_ENV !== 'production') {
+    var config = require('../webpack.config.js');
+    var webpack = require('webpack');
+    var webpackDevMiddleware = require('webpack-dev-middleware');
+    var webpackHotMiddleware = require('webpack-hot-middleware');
+    var compiler = webpack(config);
+    app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
+    app.use(webpackHotMiddleware(compiler));
+}
+
 
 var port = process.env.PORT || 3000;
 
 //db config
 mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-test');
-
-app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
-app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static(path.join(__dirname, 'dist/')))
 
