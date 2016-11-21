@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './navbar/Navbar'
 import PageListBar from './pagelistbar/PageListBar'
-import ActivePage from 'activePage/ActivePage'
+import ActivePage from 'activePage/ActivePage.js'
 import ActiveReport from './activereport/ActiveReport'
 import WelcomeScreen from './welcomescreen/WelcomeScreen'
 
