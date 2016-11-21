@@ -21,8 +21,8 @@ var port = process.env.API_PORT || 3000;
 //db config
 mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-test');
 
-app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
-app.use(webpackHotMiddleware(compiler));
+//app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
+//app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('./dist'));
 
