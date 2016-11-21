@@ -248,7 +248,7 @@ let actions = {
             dispatch(deleteReportAsync())
             dispatch(SetActiveReport(undefined))
 
-            axios.delete('http://localhost:3000/api/' + reportID)
+            axios.delete('https://radiant-escarpment-73210.herokuapp.com//api/' + reportID)
             .then(res => {
                 console.log(res);
                 console.log("Report deleted!");
@@ -271,7 +271,7 @@ let actions = {
                 "userID": userID
             }
 
-            axios.post('http://localhost:3000/api/reportings', body)
+            axios.post('https://radiant-escarpment-73210.herokuapp.com//api/reportings', body)
             .then(res => {
                 console.log(body);
                 console.log("Report Send");
@@ -294,7 +294,7 @@ let actions = {
                 userID: userID
             }
 
-            axios.post('http://localhost:3000/api/reportings/post', body)
+            axios.post('https://radiant-escarpment-73210.herokuapp.com//api/reportings/post', body)
             .then(res => {
                 console.log(body);
                 console.log("Post send to report");
@@ -310,7 +310,7 @@ let actions = {
 
             dispatch(removePostFromReport(id))
 
-            axios.delete('http://localhost:3000/api/' + reportID + '/' + id)
+            axios.delete('https://radiant-escarpment-73210.herokuapp.com//api/' + reportID + '/' + id)
             .then(res => {
                 console.log(res);
                 console.log("Post deleted from Report");
@@ -375,7 +375,7 @@ let actions = {
                     "fbID" : id,
                     "name": response.name
                 }
-                axios.post('http://localhost:3000/api/user/' + id, body)
+                axios.post('https://radiant-escarpment-73210.herokuapp.com//api/user/' + id, body)
                 .then(res => {
                     console.log("New User send");
                     console.log(body)
@@ -408,7 +408,7 @@ let actions = {
                         "name": name
                     }
                     dispatch(SetUserName(response.name))
-                    axios.post('http://localhost:3000/api/user' + userID, body)
+                    axios.post('https://radiant-escarpment-73210.herokuapp.com//api/user' + userID, body)
                     .then(res => {
                         console.log("New User send");
                         console.log(body)
@@ -416,7 +416,7 @@ let actions = {
                     .catch(err => {
                         console.error(err);
                     })
-                    axios.get('http://localhost:3000/api/reportings/' + userID)
+                    axios.get('https://radiant-escarpment-73210.herokuapp.com//api/reportings/' + userID)
                     .then(res => {
                         console.log(res.data);
                         res.data.map((report) => {
@@ -424,7 +424,7 @@ let actions = {
                         })
                         dispatch(SetActiveReport(undefined))
                     })
-                    axios.get('http://localhost:3000/api/user/' + userID)
+                    axios.get('https://radiant-escarpment-73210.herokuapp.com//api/user/' + userID)
                     .then(res => {
                         console.log('Got user info');
                         console.log(res.data[0].addedPages);
@@ -469,7 +469,7 @@ let actions = {
     loadReportings: function (userID) {
 
         return function (dispatch) {
-            axios.get('http://localhost:3000/api/reportings/' + userID)
+            axios.get('https://radiant-escarpment-73210.herokuapp.com//api/reportings/' + userID)
             .then(res => {
                 console.log(res.data);
                 res.data.map((report) => {
@@ -521,7 +521,7 @@ let actions = {
         return function (dispatch) {
             dispatch(deletePageAsync())
             dispatch(setActivePageAsync(undefined))
-            axios.delete('http://localhost:3000/api/user/' + userID + '/' + pageID)
+            axios.delete('https://radiant-escarpment-73210.herokuapp.com//api/user/' + userID + '/' + pageID)
             .then(res => {
                 console.log(res);
             })

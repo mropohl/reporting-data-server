@@ -73,7 +73,7 @@ class App extends Component {
 
             console.log(loadedState);
             this.props.dispatch(actions.loadReportings(response.authResponse.userID))
-            axios.get('http://localhost:3000/api/user/' + response.authResponse.userID)
+            axios.get('https://radiant-escarpment-73210.herokuapp.com//api/user/' + response.authResponse.userID)
             .then(res => {
                 console.log('Got user info');
                 console.log(res.data[0].addedPages);
