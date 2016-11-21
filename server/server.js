@@ -16,7 +16,7 @@ var router = express.Router();
 
 var compiler = webpack(config);
 
-var port = process.env.API_PORT || 3000;
+var port = process.env.PORT || 3000;
 
 //db config
 mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-test');
@@ -24,7 +24,7 @@ mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-t
 app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
 app.use(webpackHotMiddleware(compiler));
 
-app.use(express.static('./dist'));
+app.use(express.static(path.join(__dirname, 'dist/')))
 
 //now we should configure the API to use bodyParser and look for
 //JSON data in the request body
