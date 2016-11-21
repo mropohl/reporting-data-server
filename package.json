@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server/server.js --ignore components client",
     "postinstalllalal": "webpack -p --config ./webpack.config.js",
-    "start" : "node server/server.js"
+    "start" : "node ./server/server.js"
   },
   "author": "Max Ropohl",
   "license": "ISC",
