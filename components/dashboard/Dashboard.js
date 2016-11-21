@@ -61,7 +61,7 @@ class Dashboard extends Component {
 
 
 
-                {this.state.bShowWelcomeScreen && <WelcomeScreen dispatch={this.props.dispatch} userData={this.props.state.user}/>}
+                {this.state.bShowWelcomeScreen && !this.props.state.fShowActiveReport && <WelcomeScreen dispatch={this.props.dispatch} userData={this.props.state.user}/>}
 
             </div>
 

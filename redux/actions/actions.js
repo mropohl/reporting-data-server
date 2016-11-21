@@ -516,11 +516,18 @@ let actions = {
         }
     },
 
-    deletePage: function () {
+    deletePage: function (userID, pageID) {
 
         return function (dispatch) {
             dispatch(deletePageAsync())
             dispatch(setActivePageAsync(undefined))
+            axios.delete('http://localhost:3000/api/user/' + userID + '/' + pageID)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
     },
 

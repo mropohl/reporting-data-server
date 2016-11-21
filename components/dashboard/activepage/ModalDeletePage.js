@@ -7,7 +7,7 @@ import stylesBtn from '../../sass/btn/btn.sass'
 class ModalDeletePage extends Component {
 
     handleFinish() {
-        this.props.dispatch(actions.deletePage())
+        this.props.dispatch(actions.deletePage(this.props.userID, this.props.pageID))
     }
 
     render () {

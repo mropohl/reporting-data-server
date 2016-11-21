@@ -21,8 +21,8 @@ var port = process.env.API_PORT || 3000;
 //db config
 mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-test');
 
-//app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
-//app.use(webpackHotMiddleware(compiler));
+app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static('./dist'));
 
@@ -99,9 +99,22 @@ router.route('/user/:user_id/pages')
                 res.send(err);
             }
             //res.json({reportPost})
-            res.json({message: 'Post successfully send to report!'});
+            res.json({message: 'Page successfully send to user!'});
         })
     })
+
+router.route('/user/:user_id/:page_id')
+
+    .delete(function (req, res) {
+        User.update({ "fbID": req.params.user_id}, {
+            $pull : {"addedPages" : {"pageID" : req.params.page_id}}
+        }, function (err, comment) {
+            if (err)
+            res.send(err);
+            res.json({ message: 'Page has been deleted' })
+        })
+    })
+
 
 router.route('/reportings')
     //retrieve all comments from the database

@@ -236,6 +236,8 @@ class ActivePage extends Component {
                             key={1}
                             close={this.handleClickClose.bind(this)}
                             dispatch={this.props.dispatch}
+                            pageID={this.props.pageData.id}
+                            userID={this.props.state.user.id}
                         />
                     }
                 </ReactCSSTransitionGroup>
