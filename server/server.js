@@ -26,7 +26,7 @@ var port = process.env.PORT || 3000;
 //db config
 mongoose.connect('mongodb://mropohl:Hertha09@ds155747.mlab.com:55747/reporting-test');
 
-app.use(express.static(path.join(__dirname, 'dist/')))
+app.use(express.static('./dist'));
 
 //now we should configure the API to use bodyParser and look for
 //JSON data in the request body

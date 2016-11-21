@@ -8,7 +8,7 @@ module.exports = {
     './client/client.js'
   ],
   output: {
-    path: require("path").resolve("./"),
+    path: require("path").resolve("./dist"),
     filename: 'bundle.js',
     publicPath: '/'
   },
