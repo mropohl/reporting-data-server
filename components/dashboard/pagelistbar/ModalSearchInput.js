@@ -25,7 +25,7 @@ class ModalSearchInput extends Component {
                 let body = {
                     "pageID" : response.id
                 }
-                axios.post('http://localhost:3000/api/user/' + userID + '/pages', body)
+                axios.post('https://radiant-escarpment-73210.herokuapp.com/api/user/' + userID + '/pages', body)
                 .then(res => {
                     console.log("New Page send");
                     console.log(body)
