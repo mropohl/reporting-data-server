@@ -432,7 +432,7 @@ let actions = {
                             FB.api('/' + page.pageID, function (response) {
                                 if (response == "undefined" || response == null || !response || response.error) {
                                     console.log('Error');
-                                    dispatch(AddPage_InvalidURL())
+                                    //dispatch(AddPage_InvalidURL())
                                 } else {
                                     dispatch(AddPageAsync(response.id, response.name))
                                 }

@@ -142,7 +142,8 @@ let reducer = function (state, action) {
                         id: action.id,
                         name: action.name,
                         bIsAdministeredPage: false,
-                        bActivePage: false
+                        bActivePage: false,
+                        posts: []
                     }]
                 })
 
