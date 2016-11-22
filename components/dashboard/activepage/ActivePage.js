@@ -28,10 +28,10 @@ class ActivePage extends Component {
 
     componentDidMount() {
         this.props.dispatch(actions.LoadPageData(this.props.pageData.id))
-        if (this.props.pageData.posts === undefined) {
+        if (this.props.pageData.posts.size() === 0) {
             this.props.dispatch(actions.LoadPagePosts(this.props.pageData.id))
         }
-        if (this.props.pageData.posts !== undefined) {
+        if (this.props.pageData.posts.size() > 0) {
             this.getNewPosts(this.props)
             this.checkPostsIfInReport(this.props)
         }
