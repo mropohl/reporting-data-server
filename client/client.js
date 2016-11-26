@@ -1,8 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
 import App from '../components/App'
+import ReportViewer from '../components/ReportViewer'
 import configureStore from '../redux/store/storeconfig'
 import { Provider } from 'react-redux'
+import { Router, Route, Link, browserHistory } from 'react-router'
+
 //import styles from '../components/app.sass'
 
 // configure and create Store
@@ -33,7 +36,10 @@ let store = configureStore(initialState)
 
 render (
     <Provider store={store}>
-        <App/>
+        <Router history={browserHistory}>
+            <Route path="/" component={App}/>
+            <Route path="/shared/report/:reportid" component={ReportViewer} />
+        </Router>
     </Provider>,
     document.getElementById('app')
 )

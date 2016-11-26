@@ -9,7 +9,6 @@ import styles from './sass/app.sass'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import axios from 'axios';
 
-
 class App extends Component {
 
     componentDidMount () {

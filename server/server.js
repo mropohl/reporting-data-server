@@ -117,6 +117,18 @@ router.route('/user/:user_id/:page_id')
         })
     })
 
+router.route('/reportings/:report_id')
+    //retrieve all comments from the database
+    .get(function (req, res) {
+        //looks at our Comment Schema
+        Report.find({"id": req.params.report_id}, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+            //responds with a json object of our database comments.
+            res.json(user)
+        });
+    })
 
 router.route('/reportings')
     //retrieve all comments from the database
@@ -229,6 +241,10 @@ res.json({ message: ‘Comment has been deleted’ })
 
 //Use our router configuration when we call /api
 app.use('/api', router);
+
+app.use('/shared/report/:report_id', function (req, res) {
+    res.sendFile(path.resolve('client/report.html'));
+});
 
 app.use('/', function (req, res) {
     res.sendFile(path.resolve('client/index.html'));
