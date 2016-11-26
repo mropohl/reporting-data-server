@@ -248,7 +248,10 @@ class ActivePage extends Component {
                     <img src={this.props.pageData.pictureUrl}></img>
                     <h2>{this.props.pageData.name}</h2>
 
-                    <button className="btn" onClick={this.handleClickDelete.bind(this)} >Delete Page</button>
+                    <button className="btn btn-delete" onClick={this.handleClickDelete.bind(this)} >Remove Page</button>
+
+
+                    {this.props.pageData.likes !== undefined ? <div className="post-item-likes-wrapper">Likes:<p className="post-item-likes">{this.props.pageData.likes}</p></div> :  <p className="post-item-likes">0 Likes</p>}
 
                     <div className="page-filter-wrapper">
 

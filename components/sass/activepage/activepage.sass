@@ -27,10 +27,11 @@
 
 
 .page-info-wrapper
+    position: relative
     height: 150px
     width: 100%
     display: block
-    box-shadow: 0px 11px 16px 0px rgba(0,0,0,0.6)
+    box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2)
     //position: fixed
     background: white
     box-sizing: border-box
@@ -43,9 +44,36 @@
     h2
         display: inline-block
         margin: 0
+        top: 80px
+        position: absolute
         margin-left: 20px
         color: #7f8c8d
         transform: translateY(-45px)
+
+    .post-item-likes-wrapper
+        display: block
+        position: absolute
+        left: 300px
+        top: 65px
+        width: 200px
+
+        .post-item-likes
+            display: inline-block
+            margin-left: 10px
+            //background: $green
+            //padding: 20px
+            color: $green
+            font:
+                weight: bold
+            //border-radius: 2px
+
+
+    .btn-delete
+        padding: 10px
+        font-size: 0.8rem
+        left: 140px
+        top: 80px
+        position: absolute
 
 .page-filter-wrapper
     //padding-left: 2%

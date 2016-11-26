@@ -1,15 +1,15 @@
 {
-  "name": "react-todo-list",
+  "name": "reporting-tool",
   "version": "1.0.0",
-  "description": "A simple todo list app built with React, Redux and Webpack",
+  "description": "A reporting tool, for facebook and influencer campaings.",
   "engines": {
     "node": "6.1.0"
-    },
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server/server.js --ignore components client",
     "production": "webpack -p --config ./webpack.prod.config.js",
-    "start" : "node ./server/server.js --ignore components client"
+    "start": "node ./server/server.js --ignore components client"
   },
   "author": "Max Ropohl",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.1.0",
     "body-parser": "^1.15.2",
+    "chart.js": "^1.1.1",
     "express": "^4.14.0",
     "foreman": "^2.0.0",
     "marked": "^0.3.6",
@@ -32,6 +33,7 @@
     "react": "^15.3.1",
     "react-addons-css-transition-group": "^15.3.1",
     "react-addons-transition-group": "^15.3.1",
+    "react-chartjs": "^0.8.0",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",

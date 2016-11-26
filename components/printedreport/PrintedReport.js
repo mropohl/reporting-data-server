@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import actions from '../../redux/actions/actions'
 import PostItem from './PostItem'
+import DataItem from './DataItem'
 import styles from '../sass/printedreport/printedReport.sass'
 
 class PrintedReport extends Component {

@@ -3,7 +3,7 @@
 
 
 .loginscreen-wrapper
-
+    background: linear-gradient(to bottom right, #16a085, #9b59b6)
     width: 100%
     height: 100vh
     display: flex
@@ -11,8 +11,17 @@
     justify-content: center
 
 .loginscreen-headline
-
+    box-sizing: border-box
     text-align: center
+    color: #2c3e50
+    background: white
+    border-radius: 2px
+    width: 70%
+    padding-top: 5px
+    padding-bottom: 40px
+
+    margin-left: auto
+    margin-right: auto
 
     h1
         margin-bottom: 0
@@ -25,10 +34,17 @@
     //border: 2px solid $green
     padding: 20px
     border-radius: 2px
-    background: $green
+    //background: $green
+    p
+        opacity: 0.8
 
     .btn
-        background-color: $white
-        color: $blue
-
-        
+        margin-top: 10px
+        background-color: #f39c12
+        padding: 16px
+        padding-left: 25px
+        padding-right: 25px
+        color: white
+        font:
+            weight: 600
+        text-transform: uppercase
