@@ -10,12 +10,12 @@ class ReportViewer extends Component {
 
     componentDidMount() {
 
-        let reportID = this.props.location.pathname.substring(16)
+        let reportID = this.props.location.pathname.substring(15)
 
-        axios.get('https://radiant-escarpment-73210.herokuapp.com/reportings/' + reportID)
+        axios.get('https://radiant-escarpment-73210.herokuapp.com/api/reportings/' + reportID)
         .then(res => {
             console.log('Got shared report info');
-            console.log(res.data);
+            console.log(res);
         })
         .catch(err => {
             console.log(err);
