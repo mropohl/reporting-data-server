@@ -132,6 +132,8 @@ router.route('/shared/reportings/:report_id')
         });
     })
 
+router.route('/shared/reportings')
+
     .post(function (req, res) {
         let report = new SharedReport()
         report.name = req.body.name;
