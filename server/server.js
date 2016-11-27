@@ -122,7 +122,7 @@ router.route('/user/:user_id/:page_id')
 router.route('/shared/reportings')
 
     .post(function (req, res) {
-        report = new Report()
+        let report = new SharedReport()
         report.name = req.body.name;
         report.sharedID = req.body.id,
         report.posts = req.body.posts
@@ -139,7 +139,7 @@ router.route('shared/reportings/:report_id')
     //retrieve all comments from the database
     .get(function (req, res) {
         //looks at our Comment Schema
-        Report.find({"sharedID": req.params.report_id}, function (err, user) {
+        SharedReport.find({"sharedID": req.params.report_id}, function (err, user) {
             if (err) {
                 res.send(err);
             }
