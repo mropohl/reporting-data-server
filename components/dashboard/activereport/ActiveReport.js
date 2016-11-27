@@ -4,13 +4,15 @@ import PostItem from './PostItem'
 import styles from '../../sass/activePage/activepage.sass'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ModalDeleteReport from './ModalDeleteReport'
-
+import axios from 'axios'
+import uuid from 'node-uuid'
 class ActiveReport extends Component {
 
     constructor (props) {
         super (props)
         this.state = {
-            showModalDelete: false
+            showModalDelete: false,
+            sharedID: ""
         }
     }
 
@@ -30,6 +32,29 @@ class ActiveReport extends Component {
         })
     }
 
+    handleClickShare() {
+
+        let sharedID = "shared//" + uuid.v4()
+
+        let body = {
+            name: this.props.reportData.name,
+            posts: this.props.reportData.posts,
+            sharedID : sharedID
+        }
+
+        this.setState({
+            sharedID: sharedID
+        })
+
+        axios.post("https://radiant-escarpment-73210.herokuapp.com/api/shared/reportings", body)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
     render() {
 
         return (
@@ -41,6 +66,10 @@ class ActiveReport extends Component {
                     <button onClick={this.handleClickDelete.bind(this)}>Delete Report</button>
 
                     <button onClick={this.handleClickPrint.bind(this)}>Print Report</button>
+
+                    <button onClick={this.handleClickShare.bind(this)}>Share Report</button>
+                    {this.state.sharedID}
+
 
                 </div>
 

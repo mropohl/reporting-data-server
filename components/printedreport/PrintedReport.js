@@ -26,7 +26,9 @@ class PrintedReport extends Component {
 
                 <header className="printed-report-header">
                     <h1>
-                    {
+                    {   this.props.shared ?
+                            this.props.name
+                        :
                         this.props.state.reportings.map(function (report) {
                             if (report.bActiveReport === true) {
                                 return report.name
@@ -38,7 +40,14 @@ class PrintedReport extends Component {
 
                 <div className="page-posts-wrapper">
 
-                    {
+                    {   this.props.shared ?
+
+                            this.props.posts.map(function (post) {
+                                console.log("mapping report posts");
+                                return <PostItem data={post} key={post.id}/>
+                            }, this)
+
+                        :
                         this.props.state.reportings.map(function (report) {
                             if (report.bActiveReport === true) {
                                 let name = report.name

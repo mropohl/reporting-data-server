@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var User = require('../models/user');
 var Report = require('../models/report');
 var ReportPost = require('../models/reportPost');
+var SharedReport = require('../models/sharedReport');
+
 
 var path = require('path');
 
@@ -117,6 +119,35 @@ router.route('/user/:user_id/:page_id')
         })
     })
 
+router.route('/shared/reportings')
+
+    .post(function (req, res) {
+        report = new Report()
+        report.name = req.body.name;
+        report.sharedID = req.body.id,
+        report.posts = req.body.posts
+
+        report.save(function (err) {
+            if (err) {
+                res.send(err);
+            }
+            res.json({message: 'Shared Report successfully created!'});
+        })
+    });
+
+router.route('shared/reportings/:report_id')
+    //retrieve all comments from the database
+    .get(function (req, res) {
+        //looks at our Comment Schema
+        Report.find({"sharedID": req.params.report_id}, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+            //responds with a json object of our database comments.
+            res.json(user)
+        });
+    })
+
 router.route('/reportings')
     //retrieve all comments from the database
     .get(function (req, res) {
@@ -144,19 +175,6 @@ router.route('/reportings')
             res.json({message: 'Report successfully created!'});
         })
     });
-
-router.route('/reportings/:report_id')
-    //retrieve all comments from the database
-    .get(function (req, res) {
-        //looks at our Comment Schema
-        Report.find({"id": req.params.report_id}, function (err, user) {
-            if (err) {
-                res.send(err);
-            }
-            //responds with a json object of our database comments.
-            res.json(user)
-        });
-    })
 
 router.route('/reportings/post')
 
