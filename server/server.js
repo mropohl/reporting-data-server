@@ -119,7 +119,18 @@ router.route('/user/:user_id/:page_id')
         })
     })
 
-router.route('/shared/reportings')
+router.route('/shared/reportings/:report_id')
+
+    .get(function (req, res) {
+        //looks at our Comment Schema
+        SharedReport.find({"sahredID" : req.params.report_id}, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+            //responds with a json object of our database comments.
+            res.json(user)
+        });
+    })
 
     .post(function (req, res) {
         let report = new SharedReport()
@@ -134,19 +145,6 @@ router.route('/shared/reportings')
             res.json({message: 'Shared Report successfully created!'});
         })
     });
-
-router.route('shared/reportings/:report_id')
-    //retrieve all comments from the database
-    .get(function (req, res) {
-        //looks at our Comment Schema
-        SharedReport.find({"sharedID": req.params.report_id}, function (err, user) {
-            if (err) {
-                res.send(err);
-            }
-            //responds with a json object of our database comments.
-            res.json(user)
-        });
-    })
 
 router.route('/reportings')
     //retrieve all comments from the database
@@ -229,35 +227,6 @@ router.route('/:report_id/:post_id')
         })
     })
 
-//Adding a route to a specific comment based on the database ID
-/*router.route(‘/user/reportings/:report_id’)
-    //The put method gives us the chance to update our comment based on
-    //the ID passed to the route
-    .put(function(req, res) {
-        Report.findById(req.params.report_id, function(err, report) {
-            if (err)
-            res.send(err);
-            report
-            //save comment
-            report.save(function(err) {
-                if (err)
-                res.send(err);
-                res.json({ message: ‘Comment has been updated’ });
-            });
-        });
-    })
-
-//delete method for removing a comment from our database
-.delete(function(req, res) {
-//selects the comment by its ID, then removes it.
-Comment.remove({ _id: req.params.comment_id }, function(err, comment) {
-if (err)
-res.send(err);
-res.json({ message: ‘Comment has been deleted’ })
-})
-});*/
-
-//Use our router configuration when we call /api
 app.use('/api', router);
 
 app.use('/shared/report/:report_id', function (req, res) {
