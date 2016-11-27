@@ -4,15 +4,20 @@ import PostItem from './PostItem'
 import styles from '../../sass/activePage/activepage.sass'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ModalDeleteReport from './ModalDeleteReport'
+import ModalShareReport from './ModalShareReport'
 import axios from 'axios'
 import uuid from 'node-uuid'
+
+
+
 class ActiveReport extends Component {
 
     constructor (props) {
         super (props)
         this.state = {
             showModalDelete: false,
-            sharedID: ""
+            sharedID: "",
+            showModalShare: false
         }
     }
 
@@ -32,6 +37,12 @@ class ActiveReport extends Component {
         })
     }
 
+    handleClickCloseShare() {
+        this.setState({
+            showModalShare: false
+        })
+    }
+
     handleClickShare() {
 
         let sharedID = "shared-" + uuid.v4()
@@ -43,7 +54,8 @@ class ActiveReport extends Component {
         }
 
         this.setState({
-            sharedID: sharedID
+            sharedIDURL: "https://radiant-escarpment-73210.herokuapp.com/shared/report/" + sharedID,
+            showModalShare: true
         })
 
         axios.post("https://radiant-escarpment-73210.herokuapp.com/api/shared/reportings", body)
@@ -105,6 +117,20 @@ class ActiveReport extends Component {
                                 state={this.props.state}
                                 dispatch={this.props.dispatch}
                                 reportID={this.props.reportData.id}
+                            />
+                        }
+                    </ReactCSSTransitionGroup>
+
+                    <ReactCSSTransitionGroup
+                        transitionName="modal"
+                        transitionEnterTimeout={300}
+                        transitionLeaveTimeout={300}
+                    >
+                        {this.state.showModalShare &&
+                            <ModalShareReport
+                                key={1}
+                                close={this.handleClickCloseShare.bind(this)}
+                                url={this.state.sharedIDURL}
                             />
                         }
                     </ReactCSSTransitionGroup>
