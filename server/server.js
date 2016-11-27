@@ -123,7 +123,7 @@ router.route('/shared/reportings/:report_id')
 
     .get(function (req, res) {
         //looks at our Comment Schema
-        SharedReport.find({"sahredID" : req.params.report_id}, function (err, user) {
+        SharedReport.find({"sharedID" : req.params.report_id}, function (err, user) {
             if (err) {
                 res.send(err);
             }
