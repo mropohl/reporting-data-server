@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var SharedReportSchema = new Schema({
 
     name: String,
-    shareID: String,
+    sharedID: String,
     posts: Array
 
 });
