@@ -34,7 +34,7 @@ class ActiveReport extends Component {
 
     handleClickShare() {
 
-        let sharedID = "shared//" + uuid.v4()
+        let sharedID = "shared?" + uuid.v4()
 
         let body = {
             name: this.props.reportData.name,
