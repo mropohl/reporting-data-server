@@ -39,7 +39,7 @@ class ActiveReport extends Component {
         let body = {
             name: this.props.reportData.name,
             posts: this.props.reportData.posts,
-            sharedID : sharedID
+            id : sharedID
         }
 
         this.setState({
