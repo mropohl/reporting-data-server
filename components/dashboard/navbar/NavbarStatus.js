@@ -6,9 +6,9 @@ class NavbarStatus extends Component {
         return (
             <div>
 
-                <h1 className="navbar-logo">influencer.io</h1>
+                <h1 className="navbar-logo">socialrep</h1>
                 <span className="navbar-status">You are logged in as: <span className="navbar-status-name">{this.props.userData.name}</span></span>
-                
+
             </div>
         )
     }

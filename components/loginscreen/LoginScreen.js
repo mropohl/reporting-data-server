@@ -9,8 +9,8 @@ class LoginScreen extends Component {
             <div className="loginscreen-wrapper">
                 <div className="loginscreen-wrapper-inner">
                     <div className="loginscreen-headline">
-                        <h1>influencer.io</h1>
-                        <p>the influencer-marketing reporting tool</p>
+                        <h1>socialrep</h1>
+                        <p>the social-media marketing reporting tool</p>
                     </div>
                     <div className="loginscreen-login">
                         <p>To get started, please log in with your Facebook account.</p>
