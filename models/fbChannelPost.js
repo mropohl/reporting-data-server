@@ -1,4 +1,4 @@
-//model/user.js
+//model/report.js
 'use strict';
 //import dependency
 var mongoose = require('mongoose');
@@ -6,13 +6,13 @@ var Schema = mongoose.Schema;
 //create new instance of the mongoose.schema. the schema takes an
 //object that shows the shape of your database entries.
 
-var UserSchema = new Schema({
+var fbChannelPostSchema = new Schema({
 
-    jwtId: String,
-    reportings: Array,
-    fbAccessToken: String,
-    fbAddedChannels: Array
+    id: String,
+    message: String,
+    likes: Number,
+    date: String
 
 });
 //export our module to use in server.js
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('FbChannelPost', fbChannelPostSchema);

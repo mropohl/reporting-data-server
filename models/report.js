@@ -10,8 +10,7 @@ var ReportSchema = new Schema({
 
     name: String,
     id: String,
-    userID: String,
-    bActiveReport: Boolean,
+    jwtID: String,
     posts: Array
 
 });
